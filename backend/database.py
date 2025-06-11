@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 import os
 from datetime import datetime, timedelta
 from backend.utils import hash_password  # Import de la fonction de hachage
-DATABASE_URL = "postgresql://u9l20k6j0cmghh:p26ada30f108199ff4e88b34ed43dfe566375341d73f951ac77e626ca669641de@c958aoh997ojil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d1jeka6k8vcslv"
+DATABASE_URL = "postgres://u6005n94db2o7c:p55ef39aee90a31aceba35f982e8686bbe6bd747f9bc724eab94b245d60c191e8@c4uljrch9k8rpm.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/deav32kecbfima"
 
 # Connexion PostgreSQL (Remplace avec ton URL Heroku)
 
