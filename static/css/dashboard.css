@@ -1,0 +1,77 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Sidebar */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #343a40;
+    color: #fff;
+    transition: all 0.3s;
+    padding: 20px;
+}
+
+#sidebar .sidebar-header {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px;
+    background: #212529;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li a:hover {
+    background: #495057;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Contenu principal */
+#content {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Cartes interactives */
+.card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Animation des cartes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate {
+    animation: fadeIn 0.8s ease-in-out;
+}
