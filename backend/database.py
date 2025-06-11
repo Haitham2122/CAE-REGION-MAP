@@ -29,8 +29,10 @@ class User(Base):
 
 
 # Création des tables
-#def init_db():
-#    Base.metadata.create_all(bind=engine)
+def init_db():
+    """Initialise la base de données en créant toutes les tables"""
+    Base.metadata.create_all(bind=engine)
+    print("✅ Tables créées avec succès!")
 
 
 
