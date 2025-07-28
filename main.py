@@ -312,37 +312,43 @@ def login(request: Request,data: LoginRequest, db: Session = Depends(get_db)):
 #        return templates.TemplateResponse("index.html", {"request": request})
 @app.get("/simulation")
 async def simulation(request: Request, db: Session = Depends(get_db)):
-    session_id = request.cookies.get("access_token") 
-    
-    if not session_id:
-        return RedirectResponse(url="/")  # Redirect if not logged in
-    if session_id.startswith("Bearer "):
-        session_id = session_id.replace("Bearer ", "")
-    try :    
-        payload = jwt.decode(session_id, SECRET_KEY, algorithms=["HS256"])
-        user_email = payload.get("sub")  
-        user_licence = payload.get("licence")  
-        renewal_date = payload.get("renewal_date")  
-
-        user = db.query(User).filter(User.email == user_email).first()
-
-        if not user:
-            return RedirectResponse(url="/")
-
-        # Check if the free trial is over
-        if datetime.now() > user.trial_end_date:
-            return RedirectResponse(url="/subscribe")  # Redirect to subscription page
-        
-
-        return templates.TemplateResponse("simulation.html", {
+     return templates.TemplateResponse("simulation.html", {
                 "request": request,
-                "user_name": user_email,
-                "user_licence": user_licence,
-                "renewal_date": renewal_date
+                "user_name": "haitham.abdedaim@gmail.com",
+                "user_licence": 'Admin',
+                "renewal_date": '2029'
             })
-    except JWTError:
-        return templates.TemplateResponse("index.html", {"request": request})
+    #session_id = request.cookies.get("access_token") 
     
+    #if not session_id:
+    #    return RedirectResponse(url="/")  # Redirect if not logged in
+    #if session_id.startswith("Bearer "):
+    #    session_id = session_id.replace("Bearer ", "")
+    #try :    
+    #    payload = jwt.decode(session_id, SECRET_KEY, algorithms=["HS256"])
+    #    user_email = payload.get("sub")  
+    #    user_licence = payload.get("licence")  
+    #    renewal_date = payload.get("renewal_date")  
+#
+    #    user = db.query(User).filter(User.email == user_email).first()
+#
+    #    if not user:
+    #        return RedirectResponse(url="/")
+#
+    #    # Check if the free trial is over
+    #    if datetime.now() > user.trial_end_date:
+    #        return RedirectResponse(url="/subscribe")  # Redirect to subscription page
+    #    
+#
+    #    return templates.TemplateResponse("simulation.html", {
+    #            "request": request,
+    #            "user_name": user_email,
+    #            "user_licence": user_licence,
+    #            "renewal_date": renewal_date
+    #        })
+    #except JWTError:
+    #    return templates.TemplateResponse("index.html", {"request": request})
+    #
     
     
 @app.post("/validate-location")
