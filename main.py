@@ -82,4 +82,16 @@ async def validate_location(request: Request):
 
 
 
+@app.post("/to_pay")
+async def projets(request: Dict[Any, Any]):
+    try :
+        print(request)
+        id_=request['event']['pulseId']
+        id_insta=request['event']['boardId']
 
+        #url_=create_payment(entreprise,nom,prenom,id_,id_insta,Email,Adresse)
+        
+        return request
+    except :
+        print("newwww_connexion")
+        return request
