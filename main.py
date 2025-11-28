@@ -1,14 +1,15 @@
 import os
 from datetime import datetime, timedelta
 
-from typing import Any, Dict, List, Union
+
+
 from fastapi import FastAPI, Request, Depends, Form, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.security import OAuth2PasswordBearer
 
-
+from typing import Any, Dict, List, Union
 from backend.CAE import *
 
 # Initialisation de l'application FastAPI
