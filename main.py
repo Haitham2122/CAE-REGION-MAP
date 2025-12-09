@@ -77,9 +77,9 @@ async def validate_location(request: Request):
     altitude=data.get("altitude")
     zone=get_zone(province, altitude)
     G=obtenir_coefficient_G(province, zone)
-    cumac=calculer_ae_total(data,G, 0.97)
+    #cumac=calculer_ae_total(data,G, 0.97)
 
-    return {"zone": zone,"Ceoficient":G,"cumac":cumac}
+    return {"zone": zone,"Ceoficient":G,"cumac":0}
 
 
 
